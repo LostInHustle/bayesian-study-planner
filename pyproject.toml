@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bayesian-study-planner"
+version = "0.1.0"
+description = "Choose study sessions using a Bayesian network and expected utility."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["pgmpy==1.1.2"]
+
+[project.optional-dependencies]
+google = [
+    "google-api-python-client>=2,<3",
+    "google-auth>=2,<3",
+    "google-auth-httplib2>=0.2,<1",
+    "google-auth-oauthlib>=1,<2",
+]
+
+[project.scripts]
+study-planner = "study_planner.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["study_planner*"]
